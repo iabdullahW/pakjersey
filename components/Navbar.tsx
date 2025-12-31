@@ -7,48 +7,30 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onNotify }) => {
   return (
-    <nav className="sticky top-0 z-40 w-full bg-white border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
-            <button 
-              onClick={onNotify}
-              className="p-2 rounded-md text-gray-500 hover:text-gray-900 focus:outline-none"
-            >
-              <i className="fas fa-bars text-xl"></i>
-            </button>
+    <nav className="nav">
+      <div className="container">
+        <div className="nav-inner">
+          <div className="nav-left">
+            <div className="mobile-btn">
+              <button onClick={onNotify} className="mobile-btn" aria-label="menu">
+                <i className="fas fa-bars"></i>
+              </button>
+            </div>
+            <div className="nav-logo">PAK <span>JERSEY HUB</span></div>
           </div>
 
-          {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
-            <h1 className="text-xl md:text-2xl font-bold text-green-700 tracking-tight">
-              PAK <span className="text-gray-900">JERSEY HUB</span>
-            </h1>
+          <div className="nav-links">
+            <button onClick={onNotify}>Home</button>
+            <button onClick={onNotify}>New Arrivals</button>
+            <button onClick={onNotify}>National Team</button>
+            <button onClick={onNotify}>Tracking</button>
           </div>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-8">
-            <button onClick={onNotify} className="text-gray-600 hover:text-green-700 font-medium transition-colors">Home</button>
-            <button onClick={onNotify} className="text-gray-600 hover:text-green-700 font-medium transition-colors">New Arrivals</button>
-            <button onClick={onNotify} className="text-gray-600 hover:text-green-700 font-medium transition-colors">National Team</button>
-            <button onClick={onNotify} className="text-gray-600 hover:text-green-700 font-medium transition-colors">Tracking</button>
-          </div>
-
-          {/* Icons */}
-          <div className="flex items-center space-x-4">
-            <button 
-              onClick={onNotify}
-              className="text-gray-500 hover:text-gray-900 focus:outline-none transition-colors"
-            >
-              <i className="fas fa-search text-lg"></i>
-            </button>
-            <button 
-              onClick={onNotify}
-              className="relative text-gray-500 hover:text-gray-900 focus:outline-none transition-colors"
-            >
-              <i className="fas fa-shopping-bag text-lg"></i>
-              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-green-600 text-[10px] font-bold text-white">0</span>
+          <div className="nav-icons">
+            <button onClick={onNotify}><i className="fas fa-search"></i></button>
+            <button onClick={onNotify} style={{position:'relative'}}>
+              <i className="fas fa-shopping-bag"></i>
+              <span style={{position:'absolute',top:-6,right:-6,display:'flex',height:16,width:16,alignItems:'center',justifyContent:'center',borderRadius:999,background:'var(--accent)',color:'#fff',fontSize:10,fontWeight:700}}>0</span>
             </button>
           </div>
         </div>
